@@ -17,7 +17,7 @@ impl BridgeInfo<'_> {
     pub fn tei(&self) -> u8 {
         self.payload()[1]
     }
-    pub fn destinations(&self) -> impl ExactSizeIterator + Iterator<Item = EtherAddr> + '_ {
+    pub fn destinations(&self) -> impl ExactSizeIterator<Item = EtherAddr> + '_ {
         let count = if self.is_bridge() {
             self.payload()[2] as usize
         } else {
@@ -25,7 +25,7 @@ impl BridgeInfo<'_> {
         };
         self.payload()[3..]
             .chunks_exact(6)
-            .take(count as usize)
+            .take(count)
             .map(EtherAddr::from_slice)
     }
 }

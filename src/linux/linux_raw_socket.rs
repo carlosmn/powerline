@@ -130,7 +130,7 @@ impl EtherSocket for LinuxRawSocket {
             let addr = EtherAddr(sa.sll_addr[..6].try_into().unwrap());
             if size as usize > buffer.len() {
                 let msg = format!("Packet from {:?} too big ({}>{})", addr, size, buffer.len());
-                return Err(Error::new(ErrorKind::Other, msg));
+                return Err(Error::other(msg));
             }
             let data = &buffer[..size as usize];
             Ok(Some((addr, data)))

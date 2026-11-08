@@ -55,7 +55,7 @@ impl FromStr for EtherAddr {
         let input = input.trim();
         let mut addr = [0u8; EtherAddr::SIZE];
         let mut i = 0;
-        for part in input.split(|c| c == ':' || c == '-') {
+        for part in input.split([':', '-']) {
             if i >= addr.len() {
                 return Err(());
             }
