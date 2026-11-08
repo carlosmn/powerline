@@ -75,12 +75,12 @@ impl<'a> MessageTX<'a> for DiscoverListRequest {
 #[derive(Eq, PartialEq, Hash)]
 pub struct DiscoverList<'a>(pub &'a [u8]);
 impl DiscoverList<'_> {
-    pub fn stations(&self) -> impl ExactSizeIterator + Iterator<Item = Station> {
+    pub fn stations(&self) -> impl ExactSizeIterator + Iterator<Item = Station<'_>> {
         let data = self.payload();
         let station_count = data[0] as usize;
         data[1..].chunks_exact(12).take(station_count).map(Station)
     }
-    pub fn networks(&self) -> impl ExactSizeIterator + Iterator<Item = Network> {
+    pub fn networks(&self) -> impl ExactSizeIterator + Iterator<Item = Network<'_>> {
         let data = self.payload();
         let station_count = data[0] as usize;
         let network_offset = 1 + (station_count * 20);
