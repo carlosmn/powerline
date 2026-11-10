@@ -30,7 +30,7 @@ impl GetProperty<'_> {
     pub fn record_size(&self) -> usize {
         u16::from_le_bytes([self.payload()[2], self.payload()[3]]) as usize
     }
-    pub fn records(&self) -> impl ExactSizeIterator + Iterator<Item = &[u8]> {
+    pub fn records(&self) -> impl ExactSizeIterator<Item = &[u8]> {
         self.payload()[4..]
             .chunks_exact(self.record_size())
             .take(self.count())

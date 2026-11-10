@@ -31,7 +31,7 @@ impl core::fmt::Debug for NetworkInfoEntry<'_> {
 #[derive(Eq, PartialEq, Hash)]
 pub struct NetworkInfo<'a>(pub &'a [u8]);
 impl NetworkInfo<'_> {
-    pub fn networks(&self) -> impl ExactSizeIterator + Iterator<Item = NetworkInfoEntry> + '_ {
+    pub fn networks(&self) -> impl ExactSizeIterator<Item = NetworkInfoEntry<'_>> + '_ {
         let count = self.payload()[0] as usize;
         self.payload()[1..]
             .chunks_exact(18)
