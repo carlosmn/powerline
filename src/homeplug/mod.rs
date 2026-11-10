@@ -8,6 +8,7 @@ mod mmeerror;
 mod mmtype;
 mod mmv;
 mod network_info;
+mod network_stats;
 mod nmk;
 mod station_capabilities;
 
@@ -25,6 +26,7 @@ pub use mmeerror::*;
 pub use mmtype::*;
 pub use mmv::*;
 pub use network_info::*;
+pub use network_stats::*;
 pub use nmk::*;
 pub use station_capabilities::StationCapabilities;
 pub use station_capabilities::*;
