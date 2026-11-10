@@ -45,14 +45,16 @@ fn scan_on_interface<T: EtherInterface>(interface: &T) -> Result<(), T::Error> {
             bridged = m.destinations().count();
         }
 
-	let stats_res = match version {
-	    StationVersion::HOMEPLUG_AV_2_0 => send_request(&mut s, &mut b, addr, NetworkStatsV2Request),
-	    _ => send_request(&mut s, &mut b, addr, NetworkStatsV1Request),
-	};
+        let stats_res = match version {
+            StationVersion::HOMEPLUG_AV_2_0 => {
+                send_request(&mut s, &mut b, addr, NetworkStatsV2Request)
+            }
+            _ => send_request(&mut s, &mut b, addr, NetworkStatsV1Request),
+        };
 
-	if let Some(m) = stats_res? {
-	    info!("  {m:?}");
-	}
+        if let Some(m) = stats_res? {
+            info!("  {m:?}");
+        }
 
         let mut name = None;
         if oui == OUI::BROADCOM {
