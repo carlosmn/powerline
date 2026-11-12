@@ -82,19 +82,19 @@ mod tests {
 
     #[test]
     fn properties() {
-        assert_eq!(EtherAddr::BROADCAST.is_unicast(), false);
-        assert_eq!(EtherAddr::BROADCAST.is_multicast(), true);
-        assert_eq!(EtherAddr::BROADCAST.is_broadcast(), true);
+        assert!(!EtherAddr::BROADCAST.is_unicast());
+        assert!(EtherAddr::BROADCAST.is_multicast());
+        assert!(EtherAddr::BROADCAST.is_broadcast());
         assert_eq!(EtherAddr::BROADCAST.oui(), OUI([0xff, 0xff, 0xff]));
 
-        assert_eq!(EtherAddr::QUALCOMM_LOCALCAST.is_unicast(), true);
-        assert_eq!(EtherAddr::QUALCOMM_LOCALCAST.is_multicast(), false);
-        assert_eq!(EtherAddr::QUALCOMM_LOCALCAST.is_broadcast(), false);
+        assert!(EtherAddr::QUALCOMM_LOCALCAST.is_unicast());
+        assert!(!EtherAddr::QUALCOMM_LOCALCAST.is_multicast());
+        assert!(!EtherAddr::QUALCOMM_LOCALCAST.is_broadcast());
         assert_eq!(EtherAddr::QUALCOMM_LOCALCAST.oui(), OUI::QUALCOMM);
 
-        assert_eq!(EtherAddr::IEEE1905_MULTICAST.is_unicast(), false);
-        assert_eq!(EtherAddr::IEEE1905_MULTICAST.is_multicast(), true);
-        assert_eq!(EtherAddr::IEEE1905_MULTICAST.is_broadcast(), false);
+        assert!(!EtherAddr::IEEE1905_MULTICAST.is_unicast());
+        assert!(EtherAddr::IEEE1905_MULTICAST.is_multicast());
+        assert!(!EtherAddr::IEEE1905_MULTICAST.is_broadcast());
         assert_eq!(EtherAddr::IEEE1905_MULTICAST.oui(), OUI([0x01, 0x80, 0xc2]));
     }
 
