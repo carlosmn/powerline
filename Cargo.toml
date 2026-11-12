@@ -2,7 +2,7 @@
 name = "powerline"
 version = "0.1.1"
 authors = ["James Lee <jbit@jbit.net>"]
-edition = "2021"
+edition = "2024"
 description = "Work-in-progress: Power-line communication library"
 keywords = ["powerline", "plc", "homeplug"]
 license = "BSD-2-Clause"

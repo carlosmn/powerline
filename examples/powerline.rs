@@ -122,11 +122,11 @@ fn scan<T: EtherInterface>(
         }
     }
 
-    if let Some(filter) = filter {
-        if !filter.is_empty() {
-            warn!("");
-            warn!("Unknown interfaces specified: {filter:?}");
-        }
+    if let Some(filter) = filter
+        && !filter.is_empty()
+    {
+        warn!("");
+        warn!("Unknown interfaces specified: {filter:?}");
     }
 }
 
@@ -151,11 +151,11 @@ fn find_device<T: EtherInterface>(
         }
     }
 
-    if let Some(filter) = filter {
-        if !filter.is_empty() {
-            warn!("");
-            warn!("Unknown interfaces specified: {filter:?}");
-        }
+    if let Some(filter) = filter
+        && !filter.is_empty()
+    {
+        warn!("");
+        warn!("Unknown interfaces specified: {filter:?}");
     }
 
     debug!("{addr:?} not found on any selected interface");

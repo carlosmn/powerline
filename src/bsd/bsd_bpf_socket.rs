@@ -2,12 +2,12 @@ extern crate std;
 
 use super::bpf::*;
 use crate::*;
-use libc::{bpf_hdr, c_int, c_uint, suseconds_t, time_t, timeval};
-use libc::{close, ioctl, open, read, write};
 use libc::{BIOCGSTATS, BIOCIMMEDIATE, BIOCSBLEN, BIOCSETF, BIOCSETIF, BIOCSRTIMEOUT};
 use libc::{BPF_ALIGNMENT, EBUSY, IF_NAMESIZE, O_RDWR};
+use libc::{bpf_hdr, c_int, c_uint, suseconds_t, time_t, timeval};
+use libc::{close, ioctl, open, read, write};
 use log::debug;
-use std::ffi::{c_void, CStr, CString};
+use std::ffi::{CStr, CString, c_void};
 use std::fs::read_dir;
 use std::io::{Error, ErrorKind, Result};
 use std::mem::size_of_val;

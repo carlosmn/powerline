@@ -2,8 +2,8 @@ extern crate std;
 
 use crate::{linux::*, unix::*, *};
 use core::convert::TryInto;
-use libc::{ifaddrs, sockaddr_ll};
 use libc::{AF_PACKET, IFF_LOOPBACK, IFF_UP};
+use libc::{ifaddrs, sockaddr_ll};
 use std::borrow::ToOwned;
 use std::ffi::{CStr, CString};
 use std::io::{Error, Result};

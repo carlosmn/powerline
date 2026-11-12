@@ -47,8 +47,8 @@ pub trait EtherInterface: core::fmt::Debug + core::fmt::Display + Send + Sync + 
 }
 
 /// Return an iterator of accessible platform ethernet interfaces
-pub fn platform_interfaces(
-) -> Result<impl Iterator<Item = impl EtherInterface>, impl core::fmt::Debug> {
+pub fn platform_interfaces()
+-> Result<impl Iterator<Item = impl EtherInterface>, impl core::fmt::Debug> {
     #[cfg(any(target_os = "macos", target_os = "freebsd"))]
     {
         bsd::BsdBpfInterface::interfaces()

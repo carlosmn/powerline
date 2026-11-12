@@ -1,8 +1,8 @@
 extern crate std;
 
 use crate::{bsd::*, unix::*, *};
-use libc::{ifaddrs, sockaddr_dl};
 use libc::{AF_LINK, IFF_LOOPBACK, IFF_UP};
+use libc::{ifaddrs, sockaddr_dl};
 use std::borrow::ToOwned;
 use std::ffi::{CStr, CString};
 use std::io::{Error, Result};
